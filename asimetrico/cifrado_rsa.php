@@ -54,9 +54,9 @@ if ($conexionDB)
         location.href = "./asimetrico.php";
         </script>';  
     } else {
-        echo "Hubo un error al agregar";
+        //echo '<div class="alert alert-warning"><strong>Error!</strong> Ocurrio un fallo al guardar</div>';
     }
 } else 
 {
-    echo "Hubo un error al conectar";
+    //echo '<div class="alert alert-danger"><strong>Error!</strong> Ocurrio un fallo al conectar</div>';
 }

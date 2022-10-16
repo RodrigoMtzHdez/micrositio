@@ -34,8 +34,8 @@
                 <li class="nav-item dropdown active">
                     <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">HASH</a>
                     <div class="dropdown-menu">
-                      <a class="dropdown-item" href="#">Versión 1</a>
-                      <a class="dropdown-item" href="#">Versión 2</a>
+                      <a class="dropdown-item" href="./hash_md5/hash_md5.php">MD5</a>
+                      <a class="dropdown-item" href="./hash_sha1/hash_sha1.php">SHA1</a>
                     </div>
                 </li>
                 <li class="nav-item active">

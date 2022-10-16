@@ -19,7 +19,7 @@ function descifrar($msjCifrado, $key_privada)
     <link rel="icon" href="../proteger.png">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
+    <link rel="stylesheet" type="text/css" href="../css/fontawesome/css/all.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   </head>
   <body>
@@ -39,8 +39,8 @@ function descifrar($msjCifrado, $key_privada)
                     <li class="nav-item dropdown active">
                         <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">HASH</a>
                         <div class="dropdown-menu">
-                        <a class="dropdown-item" href="#">Versión 1</a>
-                        <a class="dropdown-item" href="#">Versión 2</a>
+                        <a class="dropdown-item" href="../hash_md5/hash_md5.php>MD5</a>
+                        <a class="dropdown-item" href="../hash_sha1/hash_sha1.php">SHA1</a>
                         </div>
                     </li>
                     <li class="nav-item active">
@@ -100,7 +100,9 @@ function descifrar($msjCifrado, $key_privada)
                                                 <input id="pasw" class="form-control" type="password" name="psw" placeholder="Ingrese la Contraseña" required>                                           
                                             </div>                                         
                                         </div>
-                                        <button name="guardar" id="guardar" class="btn btn-info" type="submit">Guardar</button>
+                                        <button name="guardar" id="guardar" class="btn btn-info" type="submit">
+                                            <span class="fa-regular fa-floppy-disk"></span> Guardar</button> 
+                                        </button>
                                     </form>
                                 </p>
                             </div>
@@ -175,7 +177,9 @@ function descifrar($msjCifrado, $key_privada)
                                                 <input name="id" type="number" class="form-control" id="id" placeholder="Ingrese el Id del Usuario" required>
                                             </div>                                       
                                         </div>
-                                        <button class="btn btn-warning" type="submit" name="consultar">Consultar</button>
+                                        <button class="btn btn-warning" type="submit" name="consultar">
+                                            <i class="fa-solid fa-magnifying-glass"></i> Consultar
+                                        </button>
                                     </form>
                                 </div>
                                 <br>
