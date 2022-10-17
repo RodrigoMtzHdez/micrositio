@@ -12,20 +12,20 @@ $telefono = $_POST['telefono'];
 $identificacion = $_POST['indetificacion'];
 $contrasena = $_POST['psw'];
 
-$dicCifrado = hash("sha1",$direccion);
-$idenCifrado = hash("sha1",$identificacion);
-$paswCifrado = hash("sha1",$contrasena);
+$dicCifrado = hash("sha384",$direccion);
+$idenCifrado = hash("sha384",$identificacion);
+$paswCifrado = hash("sha384",$contrasena);
 
 $conn = new conexiondb();
 $conexionDB = $conn->conectarDB();
 if ($conexionDB) 
 {
     $query = "INSERT INTO tblusuarios(tblusuarios.vchNombre, tblusuarios.vchApaterno, tblusuarios.vchAmaterno, tblusuarios.txtDireccion, tblusuarios.vchCorreo, tblusuarios.vchTelefono, tblusuarios.txtIdentificacion, tblusuarios.txtPassword, tblusuarios.vchTipoCifrado) 
-    VALUES('".$nombre."','".$apaterno."','".$amaterno."','".$dicCifrado."','".$correo."','".$telefono."','".$idenCifrado."','".$paswCifrado."','SHA1');";
+    VALUES('".$nombre."','".$apaterno."','".$amaterno."','".$dicCifrado."','".$correo."','".$telefono."','".$idenCifrado."','".$paswCifrado."','SHA384');";
     $resultado = mysqli_query($conexionDB, $query);
     if ($resultado) {
         echo '<script>
-        location.href = "./hash_sha1.php";
+        location.href = "./hash_sha384.php";
         </script>';  //<div class="alert alert-success"><strong>Guardado!</strong> Formulario Guardado con Exito</div>
     } else {
         //echo '<div class="alert alert-warning"><strong>Error!</strong> Ocurrio un fallo al guardar</div>';

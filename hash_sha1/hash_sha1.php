@@ -24,7 +24,7 @@ require_once '../conn.php';
             <div id="my-nav" class="collapse navbar-collapse">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
-                        <a class="nav-link" href="simetrico.php">Encriptación Simétrico AES</a>
+                        <a class="nav-link" href="../simetrico/simetrico.php">Encriptación Simétrico AES</a>
                     </li>
                     <li class="nav-item active">
                         <a class="nav-link" href="../asimetrico/asimetrico.php">Encriptación Asimétrico RSA</a>
@@ -34,6 +34,9 @@ require_once '../conn.php';
                         <div class="dropdown-menu">
                         <a class="dropdown-item" href="../hash_md5/hash_md5.php">MD5</a>
                         <a class="dropdown-item" href="./hash_sha1.php">SHA1</a>
+                        <a class="dropdown-item" href="../hash_sha256/hash_sha256.php">SHA256</a>
+                        <a class="dropdown-item" href="../hash_sha384/hash_sha384.php">SHA384</a>
+                        <a class="dropdown-item" href="../hash_sha512/hash_sha512.php">SHA512</a>
                         </div>
                     </li>
                     <li class="nav-item active">

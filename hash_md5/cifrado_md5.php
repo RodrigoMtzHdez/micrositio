@@ -12,9 +12,9 @@ $telefono = $_POST['telefono'];
 $identificacion = $_POST['indetificacion'];
 $contrasena = $_POST['psw'];
 
-$dicCifrado = md5($direccion);
-$idenCifrado = md5($identificacion);
-$paswCifrado = md5($contrasena);
+$dicCifrado = hash("md5",$direccion);
+$idenCifrado = hash("md5",$identificacion);
+$paswCifrado = hash("md5",$contrasena);
 
 $conn = new conexiondb();
 $conexionDB = $conn->conectarDB();

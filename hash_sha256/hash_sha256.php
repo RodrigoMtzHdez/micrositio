@@ -2,13 +2,6 @@
 error_reporting(0);
 
 require_once '../conn.php';
-//include('./cifrado_ase.php');
-
-function descifrar($mensaje, $llave)
-{
-    list($datos_encriptados, $inivec) = explode('::', base64_decode($mensaje), 2);
-    return openssl_decrypt($datos_encriptados, 'AES-256-CBC', $llave, 0, $inivec);
-}
 
 ?>
 
@@ -30,18 +23,18 @@ function descifrar($mensaje, $llave)
             </button>
             <div id="my-nav" class="collapse navbar-collapse">
                 <ul class="navbar-nav mr-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="simetrico.php">Encriptación Simétrico AES</a>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="../simetrico/simetrico.php">Encriptación Simétrico AES</a>
                     </li>
                     <li class="nav-item active">
                         <a class="nav-link" href="../asimetrico/asimetrico.php">Encriptación Asimétrico RSA</a>
                     </li>
-                    <li class="nav-item dropdown active">
+                    <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">HASH</a>
                         <div class="dropdown-menu">
                         <a class="dropdown-item" href="../hash_md5/hash_md5.php">MD5</a>
-                        <a class="dropdown-item" href="../hash_sha1/hash_sha1.php">SAH1</a>
-                        <a class="dropdown-item" href="../hash_sha256/hash_sha256.php">SHA256</a>
+                        <a class="dropdown-item" href=".../hash_sha1/hash_sha1.php">SHA1</a>
+                        <a class="dropdown-item" href="./hash_sha256.php">SHA256</a>
                         <a class="dropdown-item" href="../hash_sha384/hash_sha384.php">SHA384</a>
                         <a class="dropdown-item" href="../hash_sha512/hash_sha512.php">SHA512</a>
                         </div>
@@ -58,13 +51,13 @@ function descifrar($mensaje, $llave)
                 <div class="row">
                     <br>                   
                     <div class="col-lg-12">
-                        <center><h3 class="card-title">Cifrado Simétrico ASE</h3></center>
+                        <center><h3 class="card-title">Cifrado con HASH - SHA256</h3></center>
                         <br>
                         <div class="card">
                             <div class="card-header bg-primary">Formulario de Usuarios</div>
                             <div class="card-body">
                                 <p class="card-text">
-                                    <form method="post" action="./cifrado_ase.php">
+                                    <form method="post" action="./cifrado_sha256.php">
                                         <div class="form-row">
                                             <div class="col-md-4 mb-3">
                                                 <label for="nombre">Nombre: </label>
@@ -102,13 +95,9 @@ function descifrar($mensaje, $llave)
                                                 <label for="pasw">Contraseña</label>
                                                 <input id="pasw" class="form-control" type="password" name="psw" placeholder="Ingrese la Contraseña" required>                                           
                                             </div>
-                                            <div class="col-md-4 mb-3">
-                                                <label for="clave">Clave</label>
-                                                <input id="clave" class="form-control" type="password" name="clave" placeholder="Ingrese la Clave de cifrado" required>                                           
-                                            </div>
                                         </div>
                                         <button name="guardar" id="guardar" class="btn btn-info" type="submit">
-                                            <span class="fa-regular fa-floppy-disk"></span> Guardar</button> 
+                                            <span class="fa-regular fa-floppy-disk"></span> Guardar
                                         </button>
                                     </form>
                                 </p>
@@ -143,7 +132,7 @@ function descifrar($mensaje, $llave)
                                         $conexionDB = $conn->conectarDB();
                                         if ($conexionDB) {
                                             $sql = "SELECT tblusuarios.idUsuario, tblusuarios.vchNombre, tblusuarios.vchApaterno, tblusuarios.vchAmaterno, tblusuarios.txtDireccion, tblusuarios.vchCorreo, tblusuarios.vchTelefono, tblusuarios.txtIdentificacion, tblusuarios.txtPassword 
-                                            FROM tblusuarios WHERE tblusuarios.vchTipoCifrado = 'Simetrico';";
+                                            FROM tblusuarios WHERE tblusuarios.vchTipoCifrado = 'SHA256';";
                                             $result = mysqli_query($conexionDB, $sql);
 
                                             while ($mostrar = mysqli_fetch_array($result)) {
@@ -169,80 +158,6 @@ function descifrar($mensaje, $llave)
                             </p>
                         </div>
                     </div>
-
-                    <br>
-                    <div class="card">
-                        <div class="card-header bg-info">Formulario para decirfrar informacion</div>
-                        <div class="card-body">
-                            <h5 class="card-title">Informacion del usuario</h5>
-                            <p class="card-text">
-                                <div class="col-lg-12">
-                                    <form method="post">
-                                        <div class="form-row">
-                                            <div class="col-md-4 mb-3">
-                                                <label for="id">Ingrese el ID: </label>
-                                                <input name="id" type="number" class="form-control" id="id" placeholder="Ingrese el Id del Usuario" required>
-                                            </div>                                       
-                                        </div>
-                                        <button class="btn btn-warning" type="submit" name="consultar">
-                                            <i class="fa-solid fa-magnifying-glass"></i> Consultar
-                                        </button>
-                                    </form>
-                                </div>
-                                <br>
-                                <table class="table table-responsive">
-                                    <thead class="thead-dark">
-                                        <tr>
-                                            <th>#</th>
-                                            <th>Nombre</th>
-                                            <th>Apellido Paterno</th>
-                                            <th>Apellido Materno</th>
-                                            <th>Dirección</th>
-                                            <th>Correo Electronico</th>
-                                            <th>Telefono</th>
-                                            <th>Identificacion</th>
-                                            <th>Contraseña</th>
-                                        </tr>
-                                    </thead>
-
-                                    <?php
-                                        if (isset($_POST['consultar'])) 
-                                        {
-                                            $idusuario = $_POST['id'];
-                                            $conn = new conexiondb();
-                                            $conexionDB = $conn->conectarDB();
-                                            if ($conexionDB) {
-                                                $sql = "SELECT tblusuarios.idUsuario, tblusuarios.vchNombre, tblusuarios.vchApaterno, tblusuarios.vchAmaterno, tblusuarios.txtDireccion, tblusuarios.vchCorreo, tblusuarios.vchTelefono, tblusuarios.txtIdentificacion, tblusuarios.txtPassword, tblusuarios.vchClave 
-                                                FROM tblusuarios WHERE tblusuarios.idUsuario = ".$idusuario.";";
-                                                $result = mysqli_query($conexionDB, $sql);
-
-                                                while ($mostrar = mysqli_fetch_array($result)) {
-                                                    $dicDescifrado = descifrar($mostrar['txtDireccion'], $mostrar['vchClave']);
-                                                    $idenDescifrado = descifrar($mostrar['txtIdentificacion'], $mostrar['vchClave']);
-                                                    $paswDescifrado = descifrar($mostrar['txtPassword'], $mostrar['vchClave']);                                                                                 
-                                    ?>
-
-                                    <tbody>
-                                        <tr>
-                                            <td><?php echo $mostrar['idUsuario'] ?></td>
-                                            <td><?php echo $mostrar['vchNombre'] ?></td>
-                                            <td><?php echo $mostrar['vchApaterno'] ?></td>
-                                            <td><?php echo $mostrar['vchAmaterno'] ?></td>
-                                            <td><?php echo $dicDescifrado ?></td>
-                                            <td><?php echo $mostrar['vchCorreo'] ?></td>
-                                            <td><?php echo $mostrar['vchTelefono'] ?></td>
-                                            <td><?php echo $idenDescifrado ?></td>
-                                            <td><?php echo $paswDescifrado ?></td>
-                                        </tr>
-                                    </tbody>
-
-                                    <?php }}} ?>
-
-                                </table>
-                            </p>
-                        </div>
-                    </div>
-
             </div>
         </div>
 
