@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Seguridad Informatica</title>
+    <link rel="icon" href="../proteger.png">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" type="text/css" href="../css/fontawesome/css/all.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" 
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
+            <a class="navbar-brand" href="../index.php">Seguridad Informatica</a>
+            <button class="navbar-toggler" data-target="#my-nav" data-toggle="collapse" aria-controls="my-nav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div id="my-nav" class="collapse navbar-collapse">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="../simetrico/simetrico.php">Encriptación Simétrico AES</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="../asimetrico/asimetrico.php">Encriptación Asimétrico RSA</a>
+                    </li>
+                    <li class="nav-item dropdown active">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">HASH</a>
+                        <div class="dropdown-menu">
+                        <a class="dropdown-item" href="../hash_md5/hash_md5.php">MD5</a>
+                        <a class="dropdown-item" href="../hash_sha1/hash_sha1.php">SAH1</a>
+                        <a class="dropdown-item" href="../hash_sha256/hash_sha256.php">SHA256</a>
+                        <a class="dropdown-item" href="../hash_sha384/hash_sha384.php">SHA384</a>
+                        <a class="dropdown-item" href="../hash_sha512/hash_sha512.php">SHA512</a>
+                        </div>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="./propio.html">Cifrado Propio</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <div class="jumbotron jumbotron-fluid">
+            <div class="container">
+                <div class="row">
+                    <br>                   
+                    <div class="col-lg-12">
+                        <center><h3 class="card-title">Cifrado Propio</h3></center>
+                        <br>                        
+                        <div class="card">
+                            <div class="card-header bg-primary">Formulario de Usuarios</div>
+                            <div class="card-body">
+                                <p class="card-text">
+                                    <form id="usuarios-form">
+                                        <div class="form-row">
+                                            <div class="col-md-4 mb-3">
+                                                <label for="nombre">Nombre: </label>
+                                                <input id="nombre" type="text" class="form-control" placeholder="Ingrese el nombre" required>
+                                            </div>
+                                            <div class="col-md-4 mb-3">
+                                                <label for="apellidoP">Apellido Paterno:</label>
+                                                <input id="apellidoP" class="form-control" type="text" placeholder="Ingrese su apellido Paterno" required>
+                                            </div>
+                                            <div class="col-md-4 mb-3">
+                                                <label for="apellidoM">Apellido Materno:</label>
+                                                <input id="apellidoM" class="form-control" type="text" placeholder="Ingrese su apellido Materno" required>
+                                            </div>                                         
+                                        </div>
+                                        <div class="form-row">
+                                            <div class="col-md-4 mb-3">
+                                                <label for="direccion">Dirección:</label>
+                                                <input id="direccion" class="form-control" type="text"  placeholder="Ingrese su dirección" required>
+                                            </div>
+                                            <div class="col-md-4 mb-3">
+                                                <label for="correo">Correo Electronico:</label>
+                                                <input id="correo" class="form-control" type="email"  placeholder="Ingrese su Correo Electronico"  required>
+                                            </div>
+                                            <div class="col-md-4 mb-3">
+                                                <label for="telefono">Telefono:</label>
+                                                <input id="telefono" class="form-control" type="text"  placeholder="Ingrese su telefono" required>
+                                            </div>
+                                        </div>
+                                        <div class="form-row">
+                                            <div class="col-md-4 mb-3">
+                                                <label for="indetificacion">Identificación: </label>
+                                                <input id="indetificacion" class="form-control" type="text"  placeholder="Ingrese su identificación" required>                                           
+                                            </div>
+                                            <div class="col-md-4 mb-3">
+                                                <label for="psw">Contraseña</label>
+                                                <input id="psw" class="form-control" type="password" placeholder="Ingrese la Contraseña" required>                                           
+                                            </div>
+                                            <div class="col-md-4 mb-3">
+                                                <label for="clave">Clave 1</label>
+                                                <input id="clave1" class="form-control" type="number"  placeholder="Ingrese la Clave 1 de cifrado" required>                                           
+                                            </div>
+                                            <div class="col-md-4 mb-3">
+                                                <label for="clave">Clave 2</label>
+                                                <input id="clave2" class="form-control" type="number" placeholder="Ingrese la Clave 2 de cifrado" required>                                           
+                                            </div>
+                                        </div>                                   
+                                       <button class="btn btn-info" type="submit">
+                                            <span class="fa-regular fa-floppy-disk"></span> Guardar</button> 
+                                        </button>
+                                    </form><br>
+                                    
+                                </p>
+                            </div>
+                        </div>
+                    </div>                   
+                </div>
+                
+                <br>
+                <div class="card">
+                    <div class="card-header bg-success">Informacion de la tabla</div>
+                    <div class="card-body">
+                        <h5 class="card-title">Tabla de usuarios</h5>
+                        <p class="card-text">
+                            <table class="table table-responsive">
+                                <thead class="thead-dark">
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Nombre</th>
+                                        <th>Apellido Paterno</th>
+                                        <th>Apellido Materno</th>
+                                        <th>Dirección</th>
+                                        <th>Correo Electronico</th>
+                                        <th>Telefono</th>
+                                        <th>Identificacion</th>
+                                        <th>Contraseña</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="usuarios"></tbody>
+                            </table>
+                        </p>
+                    </div>
+                </div>
+                <br>
+                <div class="card">
+                    <div class="card-header bg-info">Formulario para decirfrar informacion</div>
+                    <div class="card-body">
+                        <h5 class="card-title">Informacion del usuario</h5>
+                        <p class="card-text">
+                            <div class="col-lg-12">
+                                <form>
+                                    <div class="form-row">
+                                        <div class="col-md-4 mb-3">
+                                            <label for="id">Ingrese el ID: </label>
+                                            <input name="id" type="number" class="form-control" id="id" placeholder="Ingrese el Id del Usuario" required>
+                                        </div>                                       
+                                    </div>
+                                    <button class="btn btn-warning" type="submit">
+                                        <i class="fa-solid fa-magnifying-glass"></i> Consultar
+                                    </button>
+                                </form>
+                            </div>
+                            <br>
+                            <table class="table table-responsive">
+                                <thead class="thead-dark">
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Nombre</th>
+                                        <th>Apellido Paterno</th>
+                                        <th>Apellido Materno</th>
+                                        <th>Dirección</th>
+                                        <th>Correo Electronico</th>
+                                        <th>Telefono</th>
+                                        <th>Identificacion</th>
+                                        <th>Contraseña</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="usuarios-search"></tbody>
+                            </table>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="./app.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
+</html>

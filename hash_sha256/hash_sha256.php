@@ -40,7 +40,7 @@ require_once '../conn.php';
                         </div>
                     </li>
                     <li class="nav-item active">
-                        <a class="nav-link" href="#">Cifrado Propio</a>
+                        <a class="nav-link" href="../propio/propio.php">Cifrado Propio</a>
                     </li>
                 </ul>
             </div>

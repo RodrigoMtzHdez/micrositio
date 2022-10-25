@@ -47,7 +47,7 @@ function descifrar($mensaje, $llave)
                         </div>
                     </li>
                     <li class="nav-item active">
-                        <a class="nav-link" href="#">Cifrado Propio</a>
+                        <a class="nav-link" href="../propio/propio.php">Cifrado Propio</a>
                     </li>
                 </ul>
             </div>
@@ -104,7 +104,7 @@ function descifrar($mensaje, $llave)
                                             </div>
                                             <div class="col-md-4 mb-3">
                                                 <label for="clave">Clave</label>
-                                                <input id="clave" class="form-control" type="password" name="clave" placeholder="Ingrese la Clave de cifrado" required>                                           
+                                                <input id="clave" class="form-control" type="text" name="clave" placeholder="Ingrese la Clave de cifrado" required>                                           
                                             </div>
                                         </div>
                                         <button name="guardar" id="guardar" class="btn btn-info" type="submit">
@@ -245,7 +245,6 @@ function descifrar($mensaje, $llave)
 
             </div>
         </div>
-
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
